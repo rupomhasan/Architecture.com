@@ -5,8 +5,340 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Architecture</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Architectures.com</title>
+  <style>
+    /* Word sans */
+    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Open+Sans:wght@800&family=Work+Sans:wght@400;600;700;800&display=swap');
+    /* shared styles */
+
+    * {
+      font-family: 'Work Sans', sans-serif;
+      margin: 0px;
+    }
+
+    .btn-primary {
+      padding: 1.17rem 1.25rem;
+      background: #ff900e;
+      color: #fff;
+      font-size: 1.25rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      margin: 20px;
+    }
+
+    .description-text {
+      font-size: 1rem;
+      line-height: 1.2rem;
+      color: #727272;
+      word-spacing: 4px;
+      padding: 20px;
+    }
+
+    .font-size-up {
+      font-size: 2rem;
+      padding-top: 27px;
+    }
+
+    .common-title {
+      font-size: 50px;
+    }
+
+    /* header style */
+    header {
+      background-color: rgb(254, 226, 192, 0.3);
+      padding: 50px 240px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul {
+      display: flex;
+    }
+
+    li {
+      list-style: none;
+      margin-right: 30px;
+      font-size: 1rem;
+      font-weight: 500px;
+    }
+
+    nav li a {
+      color: #424242;
+      text-decoration: none;
+    }
+
+    .nav-title {
+      font-size: 3rem;
+      font-weight: 700px;
+      color: #131313;
+    }
+
+    .banner-content {
+      max-width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .banner-title {
+      font-size: 4rem;
+      font-weight: 700px;
+    }
+
+    .banner-png {
+      width: 100%;
+    }
+
+    /* main styles */
+    main {
+      max-width: 1440px;
+      margin: 70px auto;
+    }
+
+    /* teams section styles start */
+    .teams-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .teams-img-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .teams-content {
+      padding-right: 70px;
+      padding-left: 70px;
+    }
+
+    .teams-title {
+      font-size: 2.8rem;
+    }
+
+    .quick-list {
+      font-weight: 500px;
+      color: #727272;
+    }
+
+    .our {
+      font-weight: bold;
+      color: #131313;
+    }
+
+    .text-features {
+      font-weight: bolder;
+      color: #ff900e;
+    }
+
+    /* features section start */
+    .features {
+      display: flex;
+      margin-top: 100px;
+      gap: 110px;
+    }
+
+    .features .common-title {
+      padding-left: 15px;
+      border-left: 5px solid #ff900e;
+      margin-left: 20px;
+    }
+
+    .features-card-content {
+      padding: 30px;
+      background: #fff;
+      border-radius: 8px;
+      margin: 20px;
+      box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.06);
+    }
+
+    .features-card-title {
+      font-size: 1.5rem;
+      padding-left: 20px;
+    }
+
+    .features-badge {
+      background: #ff900e;
+      color: #fff;
+      border-radius: 8px;
+      padding: 50px;
+      width: 342px;
+      position: relative;
+      bottom: 110px;
+    }
+
+    .features-badge h2 {
+      font-size: 4rem;
+      margin: 0px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .footer {
+      margin: 0px auto;
+    }
+
+    .features-img img {
+      margin-left: 100px;
+      height: 90%;
+    }
+
+    /* facts section  */
+    .facts-card-container {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .card {
+      border: 2px solid #ff900e;
+      border-radius: 8px;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .card-stats {
+      font-size: 2.8rem;
+      color: #424242;
+    }
+
+    .card-title {
+      font-weight: 600;
+      color: #72727277;
+      font-size: 1.3rem;
+      margin-top: 5px;
+    }
+
+    .sponsors {
+      text-align: center;
+    }
+
+    .sponsors-img {
+      display: flex;
+      margin-top: 50px;
+      width: 165px;
+      gap: 80px;
+      margin: 0 auto;
+      justify-content: space-evenly;
+    }
+
+    /* footer section  */
+    .footer {
+      border: 1px solid black;
+      margin: 50px auto;
+      width: 50%;
+      padding: 20px 50px;
+      border-radius: 5px;
+      background-color: bisque;
+    }
+
+    .footer p {
+      text-align: center;
+      font-size: 1.3rem;
+    }
+
+    /* responsive styles */
+    /* mobile devices */
+    @media screen and (max-width: 576px) {
+      header {
+        padding: 20px;
+      }
+
+      nav,
+      .teams-container,
+      .facts-card-container,
+      .sponsors-img,
+      .features {
+        flex-direction: column;
+      }
+
+      .teams-img-container {
+        grid-template-columns: 1fr;
+      }
+
+      .teams-content,
+      .facts-container {
+        /* text-align: center; */
+        padding: 25px;
+      }
+
+      .facts-card-container,
+      .sponsors-img {
+        gap: 20px;
+      }
+
+      .features-img img {
+        width: 90%;
+        margin-left: 0px;
+      }
+
+      .features-badge {
+        max-width: 340px;
+        position: static;
+        width: 90%;
+      }
+
+      .footer {
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 4px;
+        width: 100%;
+      }
+
+      .footer p {
+        font-size: smaller;
+      }
+    }
+
+    /* tablet or medium devices */
+    @media screen and (min-width: 576px) and (max-width: 922px) {
+
+      nav,
+      .teams-container,
+      .features {
+        flex-direction: column;
+      }
+
+      header {
+        padding: 20px;
+      }
+
+      .facts-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .facts-container {
+        padding: 60px;
+      }
+
+      .sponsors-img {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .features-img img {
+        width: auto;
+        margin-left: 0px;
+      }
+
+      .footer {
+        margin: 50px auto;
+        padding: 10px;
+        width: 80%;
+      }
+
+      .footer p {
+        font-size: small;
+      }
+    }
+  </style>
+  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 
 <body>
@@ -39,10 +371,10 @@
 
     <section class="teams-container">
       <div class="teams-img-container">
-        <img src="/images/team1.png" alt="img">
-        <img src="/images/team2.png" alt="img">
-        <img src="/images/team3.png" alt="img">
-        <img src="/images/team4.png" alt="img">
+        <img src="team1.png" alt="img">
+        <img src="team2.png" alt="img">
+        <img src="team3.png" alt="img">
+        <img src="team4.png" alt="img">
       </div>
       <div class="teams-content">
         <h3 class="teams-title">
@@ -58,31 +390,65 @@
     </section>
     <!-- teams section end  -->
     <!-- feature section start -->
-    <section></section>
+    <section class="features">
+      <div class="features-content">
+        <h3 class="common-title">Features you will <br> love & enjoy</h3>
+        <p class="description-text">There are many variations of passages of lorem Ipsum available, but the majority
+          have suffered alteration in some form, by injected humour, or randomized words which don't look even.</p>
+        <div class="features-card-content">
+          <h4 class="features-card-title">Desktop & Mobile Version </h4>
+          <p class="description-text">There are many variations of passages fo lorem Ipsum available, but the majority
+            randomized words which don't look even.</p>
+        </div>
+        <div class="features-card-content">
+          <h4 class="features-card-title">Desktop & Mobile Version </h4>
+          <p class="description-text">There are many variations of passages fo lorem Ipsum available, but the majority
+            randomized words which don't look even.</p>
+        </div>
+        <div class="features-card-content">
+          <h4 class="features-card-title">Desktop & Mobile Version </h4>
+          <p class="description-text">There are many variations of passages fo lorem Ipsum available, but the majority
+            randomized words which don't look even.</p>
+        </div>
+        <div class="features-card-content">
+          <h4 class="features-card-title">Desktop & Mobile Version </h4>
+          <p class="description-text">There are many variations of passages fo lorem Ipsum available, but the majority
+            randomized words which don't look even.</p>
+        </div>
+      </div>
+
+      <div class="features-img">
+        <img src="architect.png" alt="">
+        <div class="features-badge">
+          <h2>10+ years</h2>
+          <p>Experience</p>
+        </div>
+      </div>
+    </section>
     <!-- fact section start -->
     <section class="facts-container">
-      <h3 class="common-title font-size-up">Some Facts</h3>
+      <h3 class="common-title ">Some Facts</h3>
       <p class="description-text">There are many variations of passages of lorem ipsum available, but the majority have
         suffered alteration.</p>
       <!-- .facts-card-container>.card*4>img+h2.card-stats+p.card-title -->
       <div class="facts-card-container">
         <div class="card">
-          <img src="/images/icons/ribon.png" alt="ribon">
+          <img src="ribon.png" alt="ribon">
           <h2 class="card-stats">54</h2>
           <p class="card-title">Awards winnings</p>
         </div>
         <div class="card">
-          <img src="/images/icons/projects.png" alt="projects">
+          <img src="projects.png" alt="projects">
           <h2 class="card-stats">1458</h2>
           <p class="card-title">Projects Finished</p>
         </div>
         <div class="card">
-          <img src="/images/icons/customers.png " alt="customers">
+          <img src="customers.png " alt="customers">
           <h2 class="card-stats"> 590</h2>
           <p class="card-title">Clients Worked</p>
         </div>
         <div class="card">
-          <img src="/images/icons/email.png" alt="email">
+          <img src="email.png" alt="email">
           <h2 class="card-stats">22578</h2>
           <p class="card-title">Email send</p>
         </div>
@@ -90,20 +456,23 @@
     </section>
     <!-- sponsors section -->
     <section class="sponsors">
-      <h3 class="section-titile font-size-up">Our Sponsors </h3>
+      <h3 class="common-title ">Our Sponsors </h3>
       <p class="description-text">There are many variations of passages
-        of lorem ipusm available, but the majority have suffered alteration.
+        of lorem Ipsum available, but the majority have suffered alteration.
       </p>
       <div class="sponsors-img">
-        <img src="/images/sponsors/spotify.png" alt="spotify">
-        <img src="/images/sponsors/amazon.png" alt="amazon">
-        <img src="/images/sponsors/google.png" alt="google">
-        <img src="/images//sponsors//telerama.png" alt="telerama">
-        <img src="/images/sponsors/figma.png " alt="figma">
+        <img src="spotify.png" alt="spotify">
+        <img src="amazon.png" alt="amazon">
+        <img src="google.png" alt="google">
+        <img src="telerama.png" alt="telegram">
+        <img src="figma.png " alt="figma">
       </div>
     </section>
   </main>
-  <footer></footer>
+  <footer class="footer">
+    <p>All rights reserved copyright 2023 startup landing page design</p>
+
+  </footer>
 </body>
 
 </html>
